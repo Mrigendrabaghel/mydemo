@@ -11,7 +11,10 @@ import { Router } from '@angular/router';
   styleUrls: ["./employee-list.component.css"]
 })
 export class EmployeeListComponent implements OnInit {
+  searchText:String;
   employees: Observable<Employee[]>;
+  sortColumn = 'id';
+  reverse: boolean;
 
   constructor(private employeeService: EmployeeService,
     private router: Router) {}
@@ -41,4 +44,15 @@ export class EmployeeListComponent implements OnInit {
   updateEmployee(id: number){
     this.router.navigate(['update', id]);
   }
+
+  sort(column: string) {
+    if (this.sortColumn === column) {
+      // set boolean true or false
+        this.reverse = !this.reverse;
+      }
+      // If we click on any column then it will assign that name to sortColumn.
+    this.sortColumn = column;
+  }
+
+  
 }

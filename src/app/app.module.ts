@@ -11,6 +11,7 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
 import { FilterPipe } from './filter.pipe';
 import { SpecialPipePipe } from './special-pipe.pipe';
 import { ExponentialStrengthPipe } from './exponential-strength.pipe';
+import { SortPipe } from './sort.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { ExponentialStrengthPipe } from './exponential-strength.pipe';
     UpdateEmployeeComponent,
     FilterPipe,
     SpecialPipePipe,
-    ExponentialStrengthPipe
+    ExponentialStrengthPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

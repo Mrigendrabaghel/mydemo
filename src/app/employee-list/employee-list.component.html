@@ -2,18 +2,19 @@
   <div class="panel-heading">
     <h2>Employee List</h2>
   </div>
+  Search : <input type="text" placeholder="employee search" [(ngModel)]="searchText"/>{{searchText}}<br><br>
   <div class="panel-body">
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Name</th>
+          <th (click)="sort('firstName')">Name</th>
           <th>Age</th>
           <th>Department</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let employee of employees | async | orderByName:'firstName'">
+        <tr *ngFor="let employee of employees | async | filter:searchText | sort:sortColumn:reverse">
           <td>{{employee.firstName | specialPipe}}</td>
           <td>{{employee.lastName}}</td>
           <td>{{employee.emailId}}</td>
